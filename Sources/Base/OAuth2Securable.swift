@@ -19,7 +19,7 @@
 //
 
 import Foundation
-
+import Keychain
 
 /**
 Base class to add keychain storage functionality.
