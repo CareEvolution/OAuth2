@@ -37,7 +37,7 @@ open class OAuth2Base: OAuth2Securable {
 	}
 	
 	/// Settings related to the client-server relationship.
-	open let clientConfig: OAuth2ClientConfig
+    public let clientConfig: OAuth2ClientConfig
 	
 	/// Client-side authorization options.
 	open var authConfig = OAuth2AuthConfig()
@@ -471,7 +471,7 @@ open class OAuth2ContextStore {
 	open var state: String {
 		if _state.isEmpty {
 			_state = UUID().uuidString
-			_state = _state[_state.startIndex..<_state.index(_state.startIndex, offsetBy: 8)]		// only use the first 8 chars, should be enough
+			_state = String(_state[_state.startIndex..<_state.index(_state.startIndex, offsetBy: 8)])		// only use the first 8 chars, should be enough
 		}
 		return _state
 	}
